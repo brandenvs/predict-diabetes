@@ -208,9 +208,9 @@ print(diabetes_model_item.get_params().keys())
 
 
 # Builds a TensorFlow Model - BACK PROPAGATION preprocessing_head inputs
-def train_model(activation='relu' ):
-  model = tf.keras.Sequential([layers.Dense(64,input_dim=X_train_scaled.shape[1], activation=activation), layers.Dense(1, activation='sigmoid')])
-  model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+# def train_model(activation='relu'):
+#   model = tf.keras.Sequential([layers.Dense(64,input_dim=X_train_scaled.shape[1], activation=activation), layers.Dense(1, activation='sigmoid')])
+#   model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
 
 
   # body = tf.keras.Sequential([
@@ -224,7 +224,7 @@ def train_model(activation='relu' ):
 
   # model.compile(loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
   #               optimizer=tf.keras.optimizers.Adam())
-  return model
+ # return model
 
 # Begin pumping data through training algorithm
 # diabetes_model = train_model(dframe_preprocessing_head, inputs)
@@ -233,7 +233,7 @@ def train_model(activation='relu' ):
 # diabetes_model = KerasClassifier(build_fn=train_model(), verbose=0)
 
 
-param_grid = {'units':[34,64,128], 'activation':['relu','tanh']}
+# param_grid = {'units':[34,64,128], 'activation':['relu','tanh']}
 
 # #Creating a RandomizedSearchCV object
 # random_search = RandomizedSearchCV(estimator=diabetes_model, param_distributions=param_grid, cv=3, n_iter=5, scoring='accuracy')
