@@ -15,37 +15,6 @@ def create_dframe(csv_path=str()):
     print('Dataset Dimensions (No.Entries, No.Columns):\n', dframe.shape)
     return dframe
 
-# Function Usage: Preprocessing of Data Frame
-def tensor_slicer(dframe=panda.DataFrame(), target=panda.Series()):
-    # NOTE TRAINING MODEL & TENSOR_FLOW DATASET SLICING(optimization)
-    # Define Features of Dataset after Label has been dropped 
-    features = dframe
-
-    # Create a new dataset which contains Tensor slices
-    sliced_dframe = tf.data.Dataset.from_tensor_slices((features.values, target.values))
-    sliced_dframe = sliced_dframe.shuffle(SHUFFLE_BUFFER).batch(BATCH_SIZE)
-
-    return sliced_dframe
-
-# NOTE Uncertain if this is the correct func. name. 
-# Function Usage: This Function makes a copy of Data Frames feature, Define parameters for the Diabetes Model and Compiles the Diabetes Model.
-def preprocessing_model(dframe=panda.DataFrame()):
-    # Make copy of dframe
-    features = dframe.copy()
-    
-    # Setup diabetes model
-    diabetes_model = tf.keras.Sequential([
-        tf.keras.layers.Input(shape=(features.shape[1],)), # Adjusts the model's shape based on Data Frame Features
-        tf.keras.layers.Dense(10, activation='relu'),
-        tf.keras.layers.Dense(10, activation='relu'),
-        tf.keras.layers.Dense(1)
-    ])
-    # Compile diabetes model
-    diabetes_model.compile(optimizer='adam',
-                loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
-                metrics=['accuracy'])
-    return diabetes_model
-
 # Function Usage: Normalize Data Frame
 def normalize_dframe(dframe=panda.DataFrame()):
     # Make a copy of the data frame
@@ -115,6 +84,38 @@ def overview_data(dframe=panda.DataFrame()):
     jupyter_report.to_file(output_file='myNetworkPrototypes\\reports\\diabetes_report.html')
     return jupyter_report
 
+# NOTE: Slicing our Data Frame is an effective & highly efficient approach
+#       Consider the size of our dataset. This could be the only way to local train!
+# Function Usage: Preprocessing of Data Frame
+def tensor_slicer(dframe=panda.DataFrame(), target=panda.Series()):
+    # NOTE: TRAINING MODEL & TENSOR_FLOW DATASET SLICING(optimization)
+    # Define Features of Dataset after Label has been dropped 
+    features = dframe
+
+    # Create a new dataset which contains Tensor slices
+    sliced_dframe = tf.data.Dataset.from_tensor_slices((features.values, target.values))
+    sliced_dframe = sliced_dframe.shuffle(SHUFFLE_BUFFER).batch(BATCH_SIZE)
+    # Return the sliced Data Frame
+    return sliced_dframe
+
+# NOTE: Uncertain if I am using the correct function name. 
+# Function Usage: This Function makes a copy of Data Frames feature, Define parameters for the Diabetes Model and Compiles the Diabetes Model.
+def preprocessing_model(dframe=panda.DataFrame()):
+    # Make copy of dframe
+    features = dframe.copy()
+    
+    # Setup diabetes model
+    diabetes_model = tf.keras.Sequential([
+        tf.keras.layers.Input(shape=(features.shape[1],)), # Adjusts the model's shape based on Data Frame Features
+        tf.keras.layers.Dense(10, activation='relu'),
+        tf.keras.layers.Dense(10, activation='relu'),
+        tf.keras.layers.Dense(1)
+    ])
+    # Compile diabetes model
+    diabetes_model.compile(optimizer='adam',
+                loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
+                metrics=['accuracy'])
+    return diabetes_model
 
 # Terminal Menu
 def menu():
@@ -141,8 +142,6 @@ _sliced_dframe = tensor_slicer(_dframe, _target)
 diabetes_model = preprocessing_model(_dframe)
 
 # Train diabetes model 
-# NOTE  I use the slices for an effective highly efficient approach(consider the size of our dataset. 
-#       This could be the only way to local train!)
 diabetes_model.fit(_sliced_dframe, epochs=3)
 
 # Save diabetes model to project folder(myNetworkPrototypes\network_prototype.v3\model)
