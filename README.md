@@ -44,7 +44,7 @@ The project is organized as follows:
 To use this project, follow these steps:
 
 1. Clone the repository from [GitHub](https://github.com/BrandenSysoutHelloWorld/myBackpropNeuralNetwork).
-2. Ensure you have the necessary dependencies installed (TensorFlow, Pandas, etc.).
+2. Ensure you have the necessary dependencies installed (TensorFlow, Pandas, etc.). *Alternatively you may use the requirments.txt file or the Dockerfile within this repo*
 3. Download the dataset and place it in the `data` directory.
 4. Run the project scripts to preprocess the data and train the model.
 
