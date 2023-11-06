@@ -8,7 +8,7 @@ BATCH_SIZE = 2
 
 from keras import layers
 from ydata_profiling import ProfileReport
-from sklearn.preprocessing import LabelEncoder# Call Normalization Layer Function and Pass Tensor Flow Target
+from sklearn.preprocessing import LabelEncoder
 
 # Read CSV Rows and Create a DataFrame
 def create_dframe(csv_path):
@@ -34,6 +34,7 @@ def create_dframe(csv_path):
   print(panda_dframe.info())
   print('\n')
 
+  # TAKE INTO SEPARATE FUNC.
   # Generate a report from the panda Data Frame. Output is HTML code rendered within a Jupyter notebook
   #!!! NOTE REMOVE COMMENT !!!# jupyter_report = ProfileReport(panda_dframe, title = "10 Year Diabetes Dataframe - Pandas Profiling Report", dark_mode=True, html={'style':{'full_width':True}})
   # Save HTML output to diabetes_report.html file
@@ -113,5 +114,5 @@ diabetes_model.compile(optimizer='adam',
                 metrics=['accuracy'])
 
 diabetes_model.fit(normalized_dframe, target, epochs=10, batch_size=BATCH_SIZE)
-diabetes_model.save('data')
+diabetes_model.save('network_prototype/models')
 print(diabetes_model.get_params().keys())

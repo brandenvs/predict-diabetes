@@ -1,3 +1,2 @@
 # myBackpropNeuralNetwork
 
-Not working currently due to issues with casting...
