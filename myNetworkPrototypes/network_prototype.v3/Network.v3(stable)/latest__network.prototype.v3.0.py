@@ -134,7 +134,8 @@ _dframe = normalize_dframe(_dframe)
 
 # TESTING THE MODEL #
 # Define Target Series
-_target = _dframe.pop('weight')
+copied_dframe = _dframe.copy()
+_target = copied_dframe.pop('weight')
 # Pass Normalized Data Frame & Target Series to Tensor Sliced Objects 
 _sliced_dframe = tensor_slicer(_dframe, _target)
 
@@ -142,7 +143,19 @@ _sliced_dframe = tensor_slicer(_dframe, _target)
 diabetes_model = preprocessing_model(_dframe)
 
 # Train diabetes model 
-diabetes_model.fit(_sliced_dframe, epochs=3)
+diabetes_model.fit(_sliced_dframe, epochs=10)
+
+# Define Target Series
+copied_dframe = _dframe.copy()
+_target = copied_dframe.pop('age')
+# Pass Normalized Data Frame & Target Series to Tensor Sliced Objects 
+_sliced_dframe = tensor_slicer(_dframe, _target)
+
+# Get the Diabetes Model
+diabetes_model = preprocessing_model(_dframe)
+
+# Train diabetes model 
+diabetes_model.fit(_sliced_dframe, epochs=10)
 
 # Save diabetes model to project folder(myNetworkPrototypes\network_prototype.v3\model)
 try:

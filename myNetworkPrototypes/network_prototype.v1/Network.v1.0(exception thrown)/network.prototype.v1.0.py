@@ -41,6 +41,7 @@ def create_dframe(csv_path):
 
   # Profile DataFrame and Print Result Generated
   df_profile = ProfileReport(dframe, title = "10 Year Diabetes Dataframe - Pandas Profiling Report", dark_mode=True)
+  df_profile.to_file('myNetworkPrototypes/reports/diabetes_report.html')
   print(df_profile)
   
   return dframe
