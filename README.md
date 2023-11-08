@@ -1,14 +1,13 @@
 # Neural Network - Backpropagation Model
+
 This project implements a neural network model using backpropagation for training on the 10 Year Diabetes Dataset. The goal is to train a model to make predictions based on the dataset and evaluate its performance. This README provides an overview of the project and its components.
-## PROTOTYPE VERSIONS
 
-VERSION 1.0 - deprecated(*OUTPUT HAS EXCEPTION*)
+## Versions
 
-VERSION 1.5 - Stable(*OUTPUT IS INACCURATE*)
-
-VERSION 2.0 - Previous(*OUTPUT HAS EXCEPTION*)
-
-**VERSION 2.1 - Latest(*OUTPUT IS ACCURATE*)**
+- **1.0 - Deprecated**: (Output has exceptions)
+- **1.5 - Stable**: (Output is inaccurate)
+- **2.0 - Previous**: (Output has exceptions)
+- **2.1 - Latest**: (Output is accurate)
 
 > ENGINEERED BY Branden van Staden.
 
@@ -44,28 +43,15 @@ The project is organized as follows:
 To use this project, follow these steps:
 
 1. Clone the repository from [GitHub](https://github.com/BrandenSysoutHelloWorld/myBackpropNeuralNetwork).
-2. Ensure you have the necessary dependencies installed (TensorFlow, Pandas, etc.). *Alternatively you may use the requirments.txt file or the Dockerfile within this repo*
+2. Ensure you have the necessary dependencies installed (TensorFlow, Pandas, etc.). Alternatively, you may use the `requirements.txt` file or the Dockerfile within this repo.
 3. Download the dataset and place it in the `data` directory.
-4. Run the project scripts to preprocess the data and train the model.
-
-## Results
-
-After training the model, you can observe its performance, including the logarithmic loss and accuracy. The trained model is saved in the `models` directory and can be used for making predictions.
+4. Run the project scripts to preprocess the data and train the model. Be sure to review the project documentation for detailed usage instructions.
 
 ## Challenges and Achievements
 
-This project is a comprehensive demonstration of training a neural network model using backpropagation. Achievements include achieving a prediction accuracy of 96%, efficient data preprocessing, and model training on a dataset with 11,000 medical records.
+This project is a comprehensive demonstration of training a neural network model using backpropagation. Achievements include achieving a prediction accuracy of 96%, efficient data preprocessing, and model training on a dataset with 11,000 medical records. Challenges encountered during the project are outlined in the project documentation.
 
 ## Author
 
 - Branden Van Staden
 
-## Acknowledgments
-
-I would like to acknowledge the contributions and resources that aided in successfully completing this challenging project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Feel free to explore the code, experiment with the dataset, and contribute to this project if you find areas for improvement.
