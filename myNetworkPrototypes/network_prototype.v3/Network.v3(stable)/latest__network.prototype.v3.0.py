@@ -129,8 +129,7 @@ _dframe = normalize_dframe(_dframe)
 
 # NOTE DATA FRAME GENERATE REPORT & PREPROCESSING MODEL
 # Generate Data Frame Report
-# report = overview_data(_dframe)
-
+report = overview_data(_dframe)
 
 # TESTING THE MODEL #
 # Define Target Series
