@@ -7,7 +7,7 @@ This project implements a neural network model using backpropagation for trainin
 - **1.0 - Deprecated**: (Output has exceptions)
 - **1.5 - Stable**: (Output is inaccurate)
 - **2.0 - Previous**: (Output has exceptions)
-- **2.1 - Latest**: (Output is accurate)
+- **3.0 - Latest**: (Output is accurate)
 
 > ENGINEERED BY Branden van Staden.
 
