@@ -9,7 +9,7 @@ This project implements a neural network model using backpropagation for trainin
 - **2.0 - Previous**: (Output has exceptions)
 - **3.0 - Latest**: (Output is accurate)
 
-> ENGINEERED BY Branden van Staden.
+
 
 ## Overview
 
